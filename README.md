@@ -2,4 +2,4 @@
 
 RF related resources
 
-[RF Tx distance calculator](https://www.everythingrf.com/rf-calculators/link-budget-calculator)
+[RF Link distance calculator](https://www.everythingrf.com/rf-calculators/friis-transmission-calculator)
