@@ -1,0 +1,94 @@
+Protel Design System Design Rule Check
+PCB File : D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc
+Date     : 27/6/2020
+Time     : 3:49:05 pm
+
+Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=5mil) (Max=30mil) (Preferred=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=4.882mil) (IsVia)
+Rule Violations :0
+
+Processing Rule : Minimum Annular Ring (Minimum=7.874mil) (IsPad)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.984mil) (Max=157.48mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=3.937mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=3.937mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=10mil) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Room U_Sensor Ports (Bounding Region = (2200mil, 1950mil, 3380mil, 3891.732mil) (InComponentClass('U_Sensor Ports'))
+Rule Violations :0
+
+Processing Rule : Room U_SD Card (Bounding Region = (2482.284mil, 3370mil, 3594.488mil, 4040.354mil) (InComponentClass('U_SD Card'))
+Rule Violations :0
+
+Processing Rule : Room U_Power (Bounding Region = (1445.866mil, 1996.063mil, 2485mil, 3355mil) (InComponentClass('U_Power'))
+Rule Violations :0
+
+Processing Rule : Room U_Transceiver (Bounding Region = (1653.543mil, 3277.559mil, 2910mil, 4114.173mil) (InComponentClass('U_Transceiver'))
+Rule Violations :0
+
+Processing Rule : Room U_mcu (Bounding Region = (2100mil, 1970mil, 3380mil, 3975mil) (InComponentClass('U_mcu'))
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Minimum Annular Ring (Minimum=4.882mil) (IsVia)
+   Waived Violation between Minimum Annular Ring: (3.937mil < 4.882mil) Via (1840.433mil,2295.472mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)Waived by Isaac Wong at 27/6/2020 3:48:34 pmVia is on a copper fill
+   Waived Violation between Minimum Annular Ring: (3.937mil < 4.882mil) Via (1840.433mil,2334.842mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)Waived by Isaac Wong at 27/6/2020 3:48:34 pmVia is on a copper fill
+   Waived Violation between Minimum Annular Ring: (3.937mil < 4.882mil) Via (1860.118mil,2315.157mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)Waived by Isaac Wong at 27/6/2020 3:48:34 pmVia is on a copper fill
+   Waived Violation between Minimum Annular Ring: (3.937mil < 4.882mil) Via (1879.803mil,2295.472mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)Waived by Isaac Wong at 27/6/2020 3:48:34 pmVia is on a copper fill
+   Waived Violation between Minimum Annular Ring: (3.937mil < 4.882mil) Via (1879.803mil,2334.842mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)Waived by Isaac Wong at 27/6/2020 3:48:34 pmVia is on a copper fill
+Waived Violations :5
+
+Waived Violations Of Rule : Net Antennae (Tolerance=0mil) (All)
+   Waived Violation between Net Antennae: Via (2945.866mil,3442.913mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (2946.85mil,3395.669mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (2984.252mil,3395.669mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (2985.236mil,3441.929mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:46:28 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3015.748mil,3928.15mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3046.26mil,3927.165mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3339.567mil,3927.165mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3339.567mil,3957.677mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3526.575mil,3386.811mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3526.575mil,3957.677mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3572.835mil,3425.197mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3572.835mil,3918.307mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3572.835mil,3957.677mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+   Waived Violation between Net Antennae: Via (3574.803mil,3386.811mil) from Top Copper to Bottom Copper Waived by Isaac Wong at 27/6/2020 3:47:00 pmNo high frequency content on net
+Waived Violations :14
+
+
+Violations Detected : 0
+Waived Violations : 19
+Time Elapsed        : 00:00:01

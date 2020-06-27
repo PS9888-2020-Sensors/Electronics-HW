@@ -1,0 +1,438 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">27/6/2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:49:05 pm</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc" class="file"><acronym title="D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc">D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">19</td></tr>
+</table>
+</td>
+</table><a name="IDPHULAYUJO1L5IV1B4RSRL4PRTOATXUQCTMTJISPWQWJTRAKHEGWP"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3TBVAHQIFORVCU41RH3I4PWDZEFRZXWEFGBTZWEAPPC0MARMRDMM">Clearance Constraint (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXOAOX5CHSWK4EEE4XQKFD5UM0CPNCXMDU3RIX3GON5WR3MWJU4V">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMZTMSET4DPOMFOWWUOMVTS5JXICT034FIX5QVSLITOWTGKTZ5ISC">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1PMDMC5JHXS1BILMX4MK3SUOTPQ1VNUNJPVMUMBHEVURJPL5LP2O">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWXPO1E435IG3OKM5RS5PN1F2MIXA55MWQM1E3TJEYLD1SKRD2ORI">Width Constraint (Min=5mil) (Max=30mil) (Preferred=15mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJIVA1ZQEBQFFL4KILVJOISZFLARYFQEVOO33ONCGPY2RCECTPEC">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBUMI1ULFGXFRCSLWQGNOPUBAOAOXZI1GNNDLEMKTRARROQFX00N">Minimum Annular Ring (Minimum=4.882mil) (IsVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4N23J3I5SNPM2PMXXADXVV3GPODDJGFOZ4HIL2OIOIUHSO2Q1O">Minimum Annular Ring (Minimum=7.874mil) (IsPad)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDDPX1UIQQDOOODF4NERCNIHRDCM1M1KGWCGOQGCKGXSNP5KUCNOJ">Hole Size Constraint (Min=0.984mil) (Max=157.48mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQBSCYX4OXKLHBBCR05BTHI3HONKQRTD1YMBPMEESUQZKLDWP01U">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDABJAR1KVCERZK1XWFX5JZI0YFCJG1A1DEK1NLBUEZAIWV02MKWC">Minimum Solder Mask Sliver (Gap=3.937mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZT0R5GNIIP0UEPIWQX4M2YODGOWVGTN03MMGJ0MBSVDTYW11KZ0H">Silk To Solder Mask (Clearance=3.937mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQE2BE0CYKDWVKPAB3XCMKTS2OH2ZJZ2X0N30ESMVU11KTOLQUKYC">Silk to Silk (Clearance=10mil) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDSCG2H0YEIWLHIAVHKFOCQXOXGKSAC31PCZWMKLB5Q4ZLBD2PPSN">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEFCY2PBM4BOXJQUEGQOZUCV2XNHLKBHH5T2LVJFOEXYQ3XEJXWFF">Room U_Sensor Ports (Bounding Region = (2200mil, 1950mil, 3380mil, 3891.732mil) (InComponentClass('U_Sensor Ports'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSUJVWPENTQACKE50PWVQLWBQHOAORKP0MFO4CSBRXPCKBACZOOUI">Room U_SD Card (Bounding Region = (2482.284mil, 3370mil, 3594.488mil, 4040.354mil) (InComponentClass('U_SD Card'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5WT1YGO4GUI2CSWH3VPPHEG3Y0ZEUCNEU2FSHPWG44R0WVJLE1B">Room U_Power (Bounding Region = (1445.866mil, 1996.063mil, 2485mil, 3355mil) (InComponentClass('U_Power'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMHP4WB5VKARWEFQXFMHAK24ZLPWWW4CLAIJI55GP21WRVH5E4DMD">Room U_Transceiver (Bounding Region = (1653.543mil, 3277.559mil, 2910mil, 4114.173mil) (InComponentClass('U_Transceiver'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBIGTOZKQEKK1IFTVGSTFJCGANMHNMTDNCCH10MMNQXOV11Q1EQX">Room U_mcu (Bounding Region = (2100mil, 1970mil, 3380mil, 3975mil) (InComponentClass('U_mcu'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPUGSOWDAD011HQEVOJD250FMPPVAOGSD33IYTDQ3G21VU0LKM3M">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTEPYKNWKORCDILXCZ1HG1XKZJHB21SA2MAKFIEHLJRDZEM4QM2FF">Minimum Annular Ring (Minimum=4.882mil) (IsVia)</a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEIYNRSYQ4TQ0CQWNR0HL1CW0IGFCJCVWGSMG5IBRYZR3KBSDD2O">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">14</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">19</td>
+</tr>
+</table><br><a name="IDJM1DEAXLFRKACRWWTW5YGDGCYM0FYYXHAOTQVKLVVWXVIHEEHW3J"><h2>Rule Violations</h2></a><a name="IDYPQEFK4IFX0ACAUUITKFWCNL2H0HKJPEJVOZTZCOMT1ISPP34X1H"><h2>Waived Violations</h2></a><a name="IDTEPYKNWKORCDILXCZ1HG1XKZJHB21SA2MAKFIEHLJRDZEM4QM2FF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Minimum Annular Ring (Minimum=4.882mil) (IsVia)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1837.367mil|Location2.X=1843.499mil|Location1.Y=2300.28mil|Location2.Y=2306.412mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1837.367mil|Location2.X=1843.499mil|Location1.Y=2300.28mil|Location2.Y=2306.412mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 4.882mil) Via (1840.433mil,2295.472mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:48:34 pm<br>Via is on a copper fill</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1837.367mil|Location2.X=1843.499mil|Location1.Y=2339.651mil|Location2.Y=2345.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1837.367mil|Location2.X=1843.499mil|Location1.Y=2339.651mil|Location2.Y=2345.782mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 4.882mil) Via (1840.433mil,2334.842mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:48:34 pm<br>Via is on a copper fill</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1857.052mil|Location2.X=1863.184mil|Location1.Y=2319.965mil|Location2.Y=2326.097mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1857.052mil|Location2.X=1863.184mil|Location1.Y=2319.965mil|Location2.Y=2326.097mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 4.882mil) Via (1860.118mil,2315.157mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:48:34 pm<br>Via is on a copper fill</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1876.737mil|Location2.X=1882.869mil|Location1.Y=2300.28mil|Location2.Y=2306.412mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1876.737mil|Location2.X=1882.869mil|Location1.Y=2300.28mil|Location2.Y=2306.412mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 4.882mil) Via (1879.803mil,2295.472mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:48:34 pm<br>Via is on a copper fill</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1876.737mil|Location2.X=1882.869mil|Location1.Y=2339.651mil|Location2.Y=2345.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1876.737mil|Location2.X=1882.869mil|Location1.Y=2339.651mil|Location2.Y=2345.782mil|Absolute=True">Minimum Annular Ring: (3.937mil &lt; 4.882mil) Via (1879.803mil,2334.842mil) from Top Copper to Bottom Copper (Annular Ring=3.937mil) On (Top Layer)</acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:48:34 pm<br>Via is on a copper fill</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDEIYNRSYQ4TQ0CQWNR0HL1CW0IGFCJCVWGSMG5IBRYZR3KBSDD2O"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Net Antennae (Tolerance=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2932.524mil|Location2.X=2966.654mil|Location1.Y=3429.571mil|Location2.Y=3481.155mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2932.524mil|Location2.X=2966.654mil|Location1.Y=3429.571mil|Location2.Y=3481.155mil|Absolute=True">Net Antennae: Via (2945.866mil,3442.913mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.508mil|Location2.X=2967.638mil|Location1.Y=3382.327mil|Location2.Y=3433.911mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.508mil|Location2.X=2967.638mil|Location1.Y=3382.327mil|Location2.Y=3433.911mil|Absolute=True">Net Antennae: Via (2946.85mil,3395.669mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2970.91mil|Location2.X=3005.04mil|Location1.Y=3382.327mil|Location2.Y=3433.911mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2970.91mil|Location2.X=3005.04mil|Location1.Y=3382.327mil|Location2.Y=3433.911mil|Absolute=True">Net Antennae: Via (2984.252mil,3395.669mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2971.894mil|Location2.X=3006.024mil|Location1.Y=3428.587mil|Location2.Y=3480.171mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2971.894mil|Location2.X=3006.024mil|Location1.Y=3428.587mil|Location2.Y=3480.171mil|Absolute=True">Net Antennae: Via (2985.236mil,3441.929mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:46:28 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3002.405mil|Location2.X=3036.536mil|Location1.Y=3914.807mil|Location2.Y=3966.392mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3002.405mil|Location2.X=3036.536mil|Location1.Y=3914.807mil|Location2.Y=3966.392mil|Absolute=True">Net Antennae: Via (3015.748mil,3928.15mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3032.917mil|Location2.X=3067.048mil|Location1.Y=3913.823mil|Location2.Y=3965.407mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3032.917mil|Location2.X=3067.048mil|Location1.Y=3913.823mil|Location2.Y=3965.407mil|Absolute=True">Net Antennae: Via (3046.26mil,3927.165mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3326.224mil|Location2.X=3360.355mil|Location1.Y=3913.823mil|Location2.Y=3965.407mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3326.224mil|Location2.X=3360.355mil|Location1.Y=3913.823mil|Location2.Y=3965.407mil|Absolute=True">Net Antennae: Via (3339.567mil,3927.165mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3326.224mil|Location2.X=3360.355mil|Location1.Y=3944.335mil|Location2.Y=3995.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3326.224mil|Location2.X=3360.355mil|Location1.Y=3944.335mil|Location2.Y=3995.919mil|Absolute=True">Net Antennae: Via (3339.567mil,3957.677mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.232mil|Location2.X=3547.363mil|Location1.Y=3373.468mil|Location2.Y=3425.053mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.232mil|Location2.X=3547.363mil|Location1.Y=3373.468mil|Location2.Y=3425.053mil|Absolute=True">Net Antennae: Via (3526.575mil,3386.811mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.232mil|Location2.X=3547.363mil|Location1.Y=3944.335mil|Location2.Y=3995.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3513.232mil|Location2.X=3547.363mil|Location1.Y=3944.335mil|Location2.Y=3995.919mil|Absolute=True">Net Antennae: Via (3526.575mil,3957.677mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3559.492mil|Location2.X=3593.622mil|Location1.Y=3411.854mil|Location2.Y=3463.439mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3559.492mil|Location2.X=3593.622mil|Location1.Y=3411.854mil|Location2.Y=3463.439mil|Absolute=True">Net Antennae: Via (3572.835mil,3425.197mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3559.492mil|Location2.X=3593.622mil|Location1.Y=3904.965mil|Location2.Y=3956.549mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3559.492mil|Location2.X=3593.622mil|Location1.Y=3904.965mil|Location2.Y=3956.549mil|Absolute=True">Net Antennae: Via (3572.835mil,3918.307mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3559.492mil|Location2.X=3593.622mil|Location1.Y=3944.335mil|Location2.Y=3995.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3559.492mil|Location2.X=3593.622mil|Location1.Y=3944.335mil|Location2.Y=3995.919mil|Absolute=True">Net Antennae: Via (3572.835mil,3957.677mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3561.461mil|Location2.X=3595.591mil|Location1.Y=3373.468mil|Location2.Y=3425.053mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\5_School\PS9888\Electronics-HW\PCB\SensorNode.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3561.461mil|Location2.X=3595.591mil|Location1.Y=3373.468mil|Location2.Y=3425.053mil|Absolute=True">Net Antennae: Via (3574.803mil,3386.811mil) from Top Copper to Bottom Copper </acronym></a><br>Waived by Isaac Wong at 27/6/2020 3:47:00 pm<br>No high frequency content on net</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
